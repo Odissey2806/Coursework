@@ -2,44 +2,45 @@ public class Main {
     public static void main(String[] args) {
         EmployeeBook employeeBook = new EmployeeBook();
 
-        // Добавляем сотрудников
-        employeeBook.addEmployee("Дмитрий Попов", 47895);
-        employeeBook.addEmployee("Екатерина Стрелкова", 43400);
-        employeeBook.addEmployee("Александр Суетин", 55000);
-        employeeBook.addEmployee("Станислав Лакиза", 35000);
-        employeeBook.addEmployee("Александр Бондаренко", 85000);
-        employeeBook.addEmployee("Александр Грушин", 155000);
-        employeeBook.addEmployee("Роман Лукин", 45870);
-        employeeBook.addEmployee("Юлия Гусельникова", 105000);
-        employeeBook.addEmployee("Ольга Гусева", 115896);
-        employeeBook.addEmployee("Владимир Плиткин", 45879);
+        employeeBook.addEmployee("Иван Иванов", 50000, 1);
+        employeeBook.addEmployee("Мария Петрова", 60000, 2);
+        employeeBook.addEmployee("Алексей Сидоров", 55000, 1);
+        employeeBook.addEmployee("Елена Козлова", 52000, 3);
+        employeeBook.addEmployee("Дмитрий Морозов", 58000, 2);
+        employeeBook.addEmployee("Ольга Васильева", 53000, 1);
+        employeeBook.addEmployee("Сергей Николаев", 57000, 3);
+        employeeBook.addEmployee("Анна Михайлова", 54000, 2);
+        employeeBook.addEmployee("Павел Соколов", 56000, 1);
+        employeeBook.addEmployee("Татьяна Лебедева", 59000, 3);
 
-        // Список всех сотрудников
-        Employee[] allEmployees = employeeBook.getAllEmployees();
-        System.out.println("Список всех сотрудников:");
-        for (Employee employee : allEmployees) {
-            if (employee != null) {
-                System.out.println(employee);
-            }
-        }
+        // Индексируем зарплату на 10%
+        employeeBook.indexSalary(10);
 
-        // Сумма затрат на ЗП
-        System.out.println("Сумма затрат на зарплату: " + employeeBook.calculateTotalSalary());
+        // Выводим сотрудников с зарплатой меньше 55000
+        System.out.println("Сотрудники с зарплатой меньше 55000:");
+        employeeBook.printEmployeesWithSalaryLessThan(55000);
 
-        // Сотрудник с минимальной ЗП
-        System.out.println("Сотрудник с минимальной зарплатой: " + employeeBook.findEmployeeWithMinSalary());
+        // Выводим сотрудников с зарплатой больше или равно 55000
+        System.out.println("Сотрудники с зарплатой больше или равно 55000:");
+        employeeBook.printEmployeesWithSalaryGreaterThanOrEqual(55000);
 
-        // Сотрудник с максимальной ЗП
-        System.out.println("Сотрудник с максимальной зарплатой: " + employeeBook.findEmployeeWithMaxSalary());
+        // Выводим сотрудников в отделе 1
+        System.out.println("Сотрудники в отделе 1:");
+        employeeBook.printEmployeesInDepartment(1);
 
-        // Среднее значение зарплат
-        System.out.println("Среднее значение зарплат: " + employeeBook.calculateAverageSalary());
+        // Находим сотрудника с минимальной зарплатой в отделе 1
+        System.out.println("Сотрудник с минимальной зарплатой в отделе 1: " + employeeBook.findEmployeeWithMinSalaryInDepartment(1));
 
-        // Удаляем сотрудника
-        employeeBook.removeEmployee(2);
-        System.out.println("Сотрудник с id 2 удален.");
+        // Находим сотрудника с максимальной зарплатой в отделе 1
+        System.out.println("Сотрудник с максимальной зарплатой в отделе 1: " + employeeBook.findEmployeeWithMaxSalaryInDepartment(1));
 
-        // Ищем сотрудника по id
-        System.out.println("Сотрудник с id 8: " + employeeBook.getEmployeeById(8));
+        // Вычисляем сумму затрат на зарплату в отделе 1
+        System.out.println("Сумма затрат на зарплату в отделе 1: " + employeeBook.calculateTotalSalaryInDepartment(1));
+
+        // Вычисляем среднюю зарплату в отделе 1
+        System.out.println("Средняя зарплата в отделе 1: " + employeeBook.calculateAverageSalaryInDepartment(1));
+
+        // Индексируем зарплату в отделе 1 на 5%
+        employeeBook.indexSalaryInDepartment(1, 5);
     }
 }
